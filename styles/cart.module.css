@@ -1,0 +1,62 @@
+.container {
+  width: 288px;
+  margin: 1rem auto;
+  display: flex;
+}
+
+.ahead {
+  z-index: 1;
+}
+
+.section {
+  text-align: center;
+  width: 80px;
+  height: 240px;
+  background-color: var(--color-yellow);
+  color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  box-shadow: var(--box-shadow);
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+  position: relative;
+  right: 2px;
+}
+
+.info {
+  
+}
+
+.info h1 {
+  font-size: 1rem;
+}
+
+.deleteOffCartContainer h1 {
+  font-size: 1rem;
+}
+
+.deleteButton {
+  width: 49px;
+  height: 42px;
+  background-color: var(--color-blue-light);
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  margin: 0 auto;
+  position: relative;
+}
+
+.deleteButonContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+}
+
+
+@media screen and (min-width: 630px) {
+  .mainSection {
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

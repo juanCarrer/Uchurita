@@ -1,0 +1,7 @@
+.footer {
+  clear: both;
+  position: relative;
+  height: 48px;
+  margin-top: -48px;
+  background-color: var(--color-yellow);
+}

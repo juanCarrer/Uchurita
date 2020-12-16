@@ -1,9 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&family=Roboto&display=swap');
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Roboto, -apple-system, sans-serif;
+	background-color: var(--color-background-black);
+  background-image: url('../public/fondoUchuba.png');
+  background-repeat: space;
 }
 
 a {
@@ -13,4 +17,21 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+:root {
+	--color-yellow: #FFDE59;
+  --color-background-black: #141414;
+	--color-black: #212526;
+  --color-black-transparent: #21252688;
+	--color-white: #F6F6F6;
+	--color-grey: #EEEEEE;
+	--color-blue-dark: #1B22B3;
+	--color-blue-light: #5961FF;
+  --color-green: #3CA80A;
+	--font-primary: 'Roboto', sans-serif;
+	--font-secondary: 'noto sans', sans-serif;
+  --font-size-p: 14px;
+  --max-width: 768px;
+  --box-shadow: 2px 4px 4px 0px rgba(33,37,38,0.25);
 }

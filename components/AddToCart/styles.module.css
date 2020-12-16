@@ -1,0 +1,16 @@
+.container {
+  background-color: var(--color-blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 170px;
+  height: 30px;
+  border-radius: 5px;
+  box-shadow: var(--box-shadow);
+  cursor: pointer;
+}
+
+.title {
+  color: var(--color-white);
+  margin: 0;
+}
