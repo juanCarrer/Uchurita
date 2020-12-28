@@ -24,10 +24,6 @@
   right: 2px;
 }
 
-.info {
-  
-}
-
 .info h1 {
   font-size: 1rem;
 }
@@ -45,10 +41,6 @@
   margin: 0 auto;
   position: relative;
   cursor: pointer;
-}
-
-.deleteButton:hover {
-  background-color: var(--color-grey);
 }
 
 .deleteButonContent {
