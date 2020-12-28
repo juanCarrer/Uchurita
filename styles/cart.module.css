@@ -44,15 +44,19 @@
   box-shadow: var(--box-shadow);
   margin: 0 auto;
   position: relative;
+  cursor: pointer;
+}
+
+.deleteButton:hover {
+  background-color: var(--color-grey);
 }
 
 .deleteButonContent {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); 
+  transform: translate(-50%, -50%);
 }
-
 
 @media screen and (min-width: 630px) {
   .mainSection {

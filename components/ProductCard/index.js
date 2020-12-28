@@ -1,17 +1,23 @@
 import { Fragment, useState, useEffect } from 'react'
 import { ProductCardModal } from '../ProductCardModal'
 import styles from './styles.module.css'
-import Image from 'next/image'
 
-export function ProductCard ({ title, description, src, cost, disableModal }) {
-  const maxCaracters = 57
-  const [formatedDescription, setFormatedDescription] = useState(description)
+export function ProductCard ({ title, description, src, cost, disableModal, extendDescription }) {
+  const logDescriptionCaracters = 120
+  const shortDescriptionCarcters = 45
+  const [formatedDescription, setFormatedDescription] = useState('description')
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
-    // la descripcion debe ser de maximo 57 caracteres
-    if (formatedDescription.length > maxCaracters) {
-      setFormatedDescription(formatedDescription.slice(0, maxCaracters))
+    if (extendDescription) {
+      setFormatedDescription(description.slice(0, logDescriptionCaracters))
+    } else {
+      const formatedDes = description.slice(0, shortDescriptionCarcters)
+      if (formatedDes.length === shortDescriptionCarcters) {
+        setFormatedDescription(formatedDes + '...')
+      } else {
+        setFormatedDescription(formatedDes)
+      }
     }
   }, [])
 
@@ -23,10 +29,12 @@ export function ProductCard ({ title, description, src, cost, disableModal }) {
 
   return (
     <Fragment>
-        <div className={styles.container} onClick={modalHandler}>
-        <section className={styles.mainSection}>
+        <article
+          className={disableModal ? styles.container : `${styles.container} ${styles.clickable}`}
+          onClick={modalHandler}
+        >
           <div className={styles.imgContainer}>
-            <Image src={src} alt={`foto de ${title}`} width='114' height='114'/>
+            <img src={src} alt={`icono de ${title}`} />
           </div>
           <div className={styles.infoContainer}>
             <h3 className={styles.infoTitle}>
@@ -35,12 +43,11 @@ export function ProductCard ({ title, description, src, cost, disableModal }) {
             <p className={styles.infoDescription}>
               {formatedDescription}
             </p>
-            <h3 className={styles.infoCost}>
+          </div>
+            <h3 className={styles.cost}>
               {`$${cost}`}
             </h3>
-          </div>
-        </section>
-      </div>
+      </article>
       {
         showModal && <ProductCardModal
           title={title}

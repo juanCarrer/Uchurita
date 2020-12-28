@@ -42,7 +42,7 @@ export default function Card () {
                       <h1>{item.quantity}</h1>
                     </div>
                     <div className={styles.deleteOffCartContainer}>
-                      <h1>sacar el del carrito</h1>
+                      <h1>Sacar el del carrito</h1>
                       <div className={styles.deleteButton} onClick={() => cartDeleteHandler(item)}>
                         <div className={styles.deleteButonContent}>
                           <CartDeleteIcon />

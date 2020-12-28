@@ -8,7 +8,7 @@ export function EmpyCart () {
         <Background />
       </div>
       <h1 className={styles.text}>
-        el carrito esta vacio
+        El carrito esta vacío
       </h1>
     </section>
   )

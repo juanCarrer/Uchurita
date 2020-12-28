@@ -17,6 +17,14 @@ export function PaypalButton ({ total }) {
 
       onApprove: (data, actions) => {
         alert('transaccion terminada con exito')
+      },
+
+      onCancel: (data, actions) => {
+        console.log('transaccion cancelada')
+      },
+
+      onError: (data, actions) => {
+        console.log('error en la transaccion')
       }
 
     }).render('#paypal-button-container')

@@ -1,12 +1,14 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useRef } from 'react'
 import styles from './styles.module.css'
 import { ProductCard } from '../ProductCard'
-import cartContext from '../../context/cartContext.js'
+import cartContext from '../../context/cartContext'
 import { AddToCart } from '../AddToCart'
-import PlusIcon from '../icons/PlusIcon.js'
-import MinusIcon from '../icons/MinusIcon.js'
+import PlusIcon from '../icons/PlusIcon'
+import MinusIcon from '../icons/MinusIcon'
+import CloseButtonIcon from '../icons/CloseButton'
 
 export function ProductCardModal (props) {
+  const modalContainer = useRef()
   const { title, description, src, cost, close } = props
   const quantityUnit = 5
   const [quantity, setQuantity] = useState(quantityUnit)
@@ -38,30 +40,41 @@ export function ProductCardModal (props) {
     close()
   }
 
+  const clickOutSide = (e) => {
+    if (e.target === modalContainer.current) {
+      close()
+    }
+  }
+
   return (
-    <div className={styles.modalContainer}>
-      <main className={styles.modalMain} >
-        <h1
+    <div
+      className={styles.modalContainer}
+      onClick={clickOutSide}
+      ref={modalContainer}
+    >
+      <main className={styles.modalMain}>
+        <div
           className={styles.closeButton}
           onClick={close}
         >
-          X
-        </h1>
+          <CloseButtonIcon />
+        </div>
         <ProductCard
           title={title}
           description={description}
           src={src}
           cost={cost}
           disableModal={true}
+          extendDescription={true}
         />
         <section className={styles.cartSection}>
           <h1 className={styles.quantity}>
             cantidad
           </h1>
           <div className={styles.quantityControls}>
-              <MinusIcon onClick={subHandler} />
+              <MinusIcon className={styles.control} onClick={subHandler} />
               <h3>{quantity}</h3>
-              <PlusIcon onClick={plusHandler} />
+              <PlusIcon className={styles.control} onClick={plusHandler} />
           </div>
           <AddToCart action={addToCarthandler} />
         </section>
